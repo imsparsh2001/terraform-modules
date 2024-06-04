@@ -47,7 +47,7 @@ resource "azurerm_network_interface" "linux_nic" {
 resource "azurerm_virtual_machine" "windows_vm" {
   name                  = "WindowsVM"
   location              = var.location
-  resource_group_name   = var.resource_group_name
+  resource_groupName    = var.resource_group_name
   vm_size               = "Standard_DS1_v2"
   network_interface_ids = [azurerm_network_interface.windows_nic.id]
 
@@ -71,7 +71,7 @@ resource "azurerm_virtual_machine" "windows_vm" {
   storage_os_disk {
     name              = "myWindowsOSDisk"
     caching           = "ReadWrite"
-    create_option     = "FromOffset"
+    create_option     = "FromImage"  # Corrected from "FromOffset" to "FromImage"
     managed_disk_type = "Standard_LRS"
   }
 }
