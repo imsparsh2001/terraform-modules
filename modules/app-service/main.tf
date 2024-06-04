@@ -14,9 +14,8 @@ resource "azurerm_linux_web_app" "app_service" {
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.app_service_plan.id
 
-  linux_fx_version    = "DOCKER|nginx:latest"        # Moved out of site_config
-
   site_config {
+    linux_fx_version    = "DOCKER|nginx:latest"        # Correct placement of linux_fx_version
     # other configurations if necessary
   }
 }
