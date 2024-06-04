@@ -1,4 +1,3 @@
-
 # Linux VM
 resource "azurerm_virtual_machine" "linux_vm" {
   name                  = "LinuxVM"
@@ -22,6 +21,13 @@ resource "azurerm_virtual_machine" "linux_vm" {
 
   os_profile_linux_config {
     disable_password_authentication = false
+  }
+
+  storage_os_disk {
+    name              = "myLinuxOSDisk"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
   }
 }
 
@@ -60,7 +66,13 @@ resource "azurerm_virtual_machine" "windows_vm" {
 
   os_profile_windows_config {
     provision_vm_agent = true
-    enable_automatic_updates = true
+  }
+
+  storage_os_disk {
+    name              = "myWindowsOSDisk"
+    caching           = "ReadWrite"
+    create_option     = "FromOffset"
+    managed_disk_type = "Standard_LRS"
   }
 }
 
