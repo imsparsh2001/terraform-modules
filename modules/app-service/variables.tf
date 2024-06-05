@@ -1,10 +1,10 @@
-variable "app_service_plan" {
-  description = "App service plan name"
+variable "name" {
+  description = "The base name for the resources"
   type        = string
 }
 
-variable "app_service_name" {
-  description = "App service name"
+variable "location" {
+  description = "The location for these resources"
   type        = string
 }
 
@@ -13,7 +13,14 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "location" {
-  description = "The location of the resource group"
+variable "sku_name" {
+  description = "The SKU name for the App Service Plan"
+  default     = "P1v2"
   type        = string
+}
+
+variable "app_settings" {
+  description = "Application settings for the Web App"
+  type        = map(string)
+  default     = {}
 }
