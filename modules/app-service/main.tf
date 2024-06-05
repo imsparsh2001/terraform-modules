@@ -11,10 +11,10 @@ resource "azurerm_linux_web_app" "example" {
   location            = var.location
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.example.id
+  linux_fx_version    = var.linux_fx_version 
 
   site_config {
-    linux_fx_version = var.linux_fx_version
-    always_on        = true
+    always_on = true
   }
 
   app_settings = var.app_settings
