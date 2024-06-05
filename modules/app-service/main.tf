@@ -12,10 +12,5 @@ resource "azurerm_linux_web_app" "example" {
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.example.id
 
-  site_config {
-    linux_fx_version = var.linux_fx_version  // Specify runtime stack, e.g., "NODE|14-lts"
-    always_on        = true
-  }
-
   app_settings = var.app_settings
 }
