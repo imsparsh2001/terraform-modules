@@ -23,12 +23,13 @@ resource "azurerm_lb_backend_address_pool" "backend" {
 }
 
 resource "azurerm_lb_probe" "probe" {
-  resource_group_name = var.resource_group_name
+  name                = "http-probe"
   loadbalancer_id     = azurerm_lb.main.id
-  name                = "health-probe"
-  protocol            = "Tcp"
+  protocol            = "Http"
+  request_path        = "/healthcheck"  
   port                = 80
 }
+
 
 resource "azurerm_lb_rule" "rule" {
   resource_group_name            = var.resource_group_name
