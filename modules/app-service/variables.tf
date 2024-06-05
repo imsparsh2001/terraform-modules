@@ -18,11 +18,6 @@ variable "sku_name" {
   type        = string
 }
 
-variable "linux_fx_version" {
-  description = "The runtime stack for the Linux web app"
-  type        = string
-}
-
 variable "app_settings" {
   description = "Application settings for the web app"
   type        = map(string)
