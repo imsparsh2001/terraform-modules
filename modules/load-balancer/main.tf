@@ -12,7 +12,7 @@ resource "azurerm_lb" "main" {
 resource "azurerm_public_ip" "lb" {
   name                = "${var.lb_name}-public-ip"
   location            = var.location
-  resource_group_name = var.resource_group
+  resource_group_name = var.resource_group_name  # Corrected from var.resource_group
   allocation_method   = "Static"
 }
 
