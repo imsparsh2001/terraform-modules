@@ -9,11 +9,12 @@ resource "azurerm_virtual_machine" "vm" {
 
   # OS Profile
   storage_image_reference {
-    publisher = each.value.os_publisher
-    offer     = each.value.os_offer
-    sku       = each.value.os_sku
-    version   = "latest"
-  }
+  publisher = "Canonical"
+  offer     = "UbuntuServer"
+  sku       = "18.04-LTS"
+  version   = "latest"  
+}
+
 
   storage_os_disk {
     name              = "${each.value.vm_name}-osdisk"
